@@ -1,0 +1,32 @@
+; Export table for NPClient64.dll, matching the prebuilt bin/NPClient64.dll.
+;
+; The 2015 source itself only exports the 21 NP_*/NPPriv_* functions; the
+; prebuilt 2013 binary additionally exported DllMain at ordinal 1, shifting
+; every NP function up by one.  Listing the names explicitly here reproduces
+; that exact 22-entry interface without modifying npclient.c.
+
+LIBRARY NPClient64
+
+EXPORTS
+    DllMain                     @1
+    NPPriv_ClientNotify         @2
+    NPPriv_GetLastError         @3
+    NPPriv_SetData              @4
+    NPPriv_SetLastError         @5
+    NPPriv_SetParameter         @6
+    NPPriv_SetSignature         @7
+    NPPriv_SetVersion           @8
+    NP_GetData                  @9
+    NP_GetParameter             @10
+    NP_GetSignature             @11
+    NP_QueryVersion             @12
+    NP_ReCenter                 @13
+    NP_RegisterProgramProfileID @14
+    NP_RegisterWindowHandle     @15
+    NP_RequestData              @16
+    NP_SetParameter             @17
+    NP_StartCursor              @18
+    NP_StartDataTransmission    @19
+    NP_StopCursor               @20
+    NP_StopDataTransmission     @21
+    NP_UnregisterWindowHandle   @22
